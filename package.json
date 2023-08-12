@@ -1,6 +1,6 @@
 {
-  "name": "bomb-rush-cyberfunk-api",
-  "version": "0.1.1",
+  "name": "maui-fire-relief",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,7 +11,8 @@
   "dependencies": {
     "@typegoose/typegoose": "^11.4.0",
     "axios": "^1.4.0",
-    "cheerio": "^1.0.0-rc.12",
+    "google-auth-library": "^8.9.0",
+    "google-spreadsheet": "^4.0.2",
     "mongoose": "^7.4.2",
     "next": "13.4.13",
     "react": "18.2.0",
