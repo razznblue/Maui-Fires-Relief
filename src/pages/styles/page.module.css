@@ -25,6 +25,7 @@
   left: 0;
   width: 100vw;
   min-height: 40vh;
+  padding-bottom: 2rem;
 }
 
 .toggle-btn {
@@ -409,6 +410,7 @@
 
   .main .right-container .main-p {
     min-width: unset;
+    margin: 1.5rem;
   }
 
   .main .main-title {
@@ -419,8 +421,9 @@
   }
 
   .main .right-container {
-    min-height: 16rem;
+    min-height: 19rem;
     text-align: center; /* Center content */
+    padding-bottom: 3rem;
   }
 
   .main .sheet-rows {
@@ -432,5 +435,182 @@
   #search-bar-wrapper {
     transform: translate(-50%, 200%);
     min-width: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main {
+    padding-top: 10rem;
+  }
+
+  .main .right-container {
+    min-height: 10rem;
+    margin-top: 7rem;
+  }
+}
+
+@media (max-width: 390px) {
+  #search-bar-wrapper {
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 360px) {
+
+  .main .right-container {
+    min-height: 25rem;
+    padding-bottom: 3rem;
+  }
+  #search-bar-wrapper {
+    min-width: 225px;
+  }
+}
+
+@media (max-width: 314px) {
+  .main .right-container {
+    min-height: 29rem;
+    padding-bottom: 3rem;
+  }
+}
+
+@media (max-width: 280px) {
+  .main .right-container {
+    min-height: 32rem;
+    padding-bottom: 3rem;
+  }
+}
+
+
+/* Tablet (Large) */
+@media (max-width: 912px) and (max-height: 1368px) {
+  .main {
+    padding: 1rem;
+    padding-top: 16rem;
+  }
+  .main .banner {
+    min-height: 20vh;
+  }
+  #search-bar-wrapper {
+    transform: translate(-50%, 250%);
+  }
+}
+
+/* Tablet (Medium 1) */
+@media (max-width: 768px) and (max-height: 1024px) {
+  .main {
+    padding: 0.5rem;
+    padding-top: 16rem;
+  }
+  .main .banner {
+    min-height: 30vh;
+  }
+  #search-bar-wrapper {
+    transform: translate(-50%, 250%);
+  }
+}
+
+/* Tablet (Medium 2) */
+@media (max-width: 820px) and (max-height: 1180px) {
+  .main {
+    padding: 0.5rem;
+    padding-top: 16rem;
+  }
+  .main .banner {
+    min-height: 25vh;
+  }
+  #search-bar-wrapper {
+    transform: translate(-50%, 250%);
+  }
+}
+
+/* iPhone XR */
+@media (max-width: 600px) {
+  .main {
+    padding: 2rem;
+    padding-top: 10rem;
+  }
+  .main .banner {
+    min-height: 40vh;
+  }
+}
+
+/* iPhone XR */
+@media (max-width: 412px) and (max-height: 915px) {
+  .main .banner {
+    min-height: 28vh;
+  }
+  #search-bar-wrapper {
+    transform: translate(-50%, 250%);
+  }
+}
+
+
+/* iPhone XR */
+@media (max-width: 414px) and (max-height: 896px) {
+  .main .banner {
+    min-height: 28vh;
+  }
+  #search-bar-wrapper {
+    transform: translate(-50%, 250%);
+  }
+}
+
+/* iPhone SE */
+@media (max-width: 375px) and (max-height: 667px) {
+  .main {
+    padding-top: 6rem;
+  }
+  .main .banner {
+    min-height: 30vh;
+  }
+  .main .right-container {
+    min-height: 20rem;
+  }
+  #search-bar-wrapper {
+    transform: translate(-50%, 175%);
+  }
+}
+
+/* Samsung Galaxy S8 */
+@media (max-width: 360px) and (max-height: 740px) {
+
+  .main {
+    padding-top: 6rem;
+  }
+
+  .main .right-container {
+    min-height: 20rem;
+  }
+
+  #search-bar-wrapper {
+    transform: translate(-50%, 175%);
+  }
+}
+
+/* Galaxy S9 */
+@media (max-width: 320px) and (max-height: 658px) {
+
+  .main {
+    padding-top: 6rem;
+  }
+
+  .main .banner {
+    min-height: 32vh;
+  }
+
+  .main .right-container {
+    min-height: 25rem;
+    padding-bottom: 3rem;
+  }
+
+  #search-bar-wrapper {
+    transform: translate(-50%, 175%);
+  }
+}
+
+/* Nest Hub */
+@media (max-width: 1024px) and (max-height: 600px) {
+  .main .banner {
+    min-height: 50vh;
   }
 }
