@@ -3,6 +3,7 @@ import dbConnect from '@/db/db';
 import fs from 'fs';
 import path from 'path';
 import RateLimiter from '@/utils/limiter';
+import jsonData from '../../../data.json'; 
 
 const callsPerMinute = 1;
 const limiter = new RateLimiter(callsPerMinute, 60 * 1000);
@@ -11,9 +12,10 @@ export default async function handler(req: any, res: any) {
 
 
   const fileName = 'output.json'
-  const filePath = path.join(process.cwd(), fileName);
-  console.log(`filePath: ${filePath}`);
-  const data = await fs.promises.readFile(filePath, 'utf8');
+  // const filePath = path.join(process.cwd(), fileName);
+  // console.log(`filePath: ${filePath}`);
+  // const data = await fs.promises.readFile(filePath, 'utf8');
+  const data = JSON.stringify(jsonData);
   await dbConnect();
   console.log('connected to DB')
 
