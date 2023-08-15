@@ -110,6 +110,7 @@ const SheetRenderer = (wrapper: any) => {
         <div className={styles['right-container']}>
           <p className={styles['main-p']}>You can help <i>directly</i> aid `Ohana displaced by the fires</p>
           <p id={styles['main-p']} className={styles['main-p']}>Please start a group DM on Instagram to <a href="https://www.instagram.com/kennareed/">@kennareed</a>, <a href="https://www.instagram.com/ssamakaio/">@ssamakaio</a>, <a href="https://www.instagram.com/@gwubby/">@gwubby</a> if you know of any more `ohana to add to this list!</p>
+          <p className={styles['main-p']}>For developers, visit the <a href="https://github.com/razznblue/Maui-Fires-Relief">github page</a> if you would like to contribute to this website.</p>
         </div>
 
       </div>

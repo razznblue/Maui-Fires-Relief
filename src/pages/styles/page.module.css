@@ -72,7 +72,7 @@
 .main .right-container {
   margin-top: 3rem;
   border: 2px solid rgb(30, 116, 59);
-  max-height: 14rem;
+  max-height: 20rem;
   background: rgb(30, 116, 59);
 }
 
@@ -84,7 +84,7 @@
   min-width: 20rem;
 }
 
-#main-p a:hover {
+.main .right-container .main-p a:hover {
   color: rgb(221, 171, 77);
 }
 
