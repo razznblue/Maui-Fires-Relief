@@ -1,16 +1,18 @@
 import { CheerioAPI, load } from 'cheerio';
 import axios from 'axios';
 import fs from 'fs';
+import path from 'path';
 
 // const sheetIds = [194434303, 0, 120027051, 2532397];
-const sheetIds = [194434303];
 
-const scrapeGoogleSheet = async (url: string) => {
+export default async function handler(req: any, res: any) {
+  res.send('Scraping Data..');
+  const sheetIds = [194434303];
+  const sheetUrl = 'https://docs.google.com/spreadsheets/d/1lExatubPl6zvsDcy4qUd3Sv1PvvKrzMhUyOzaKuId0o/htmlview';
+  
   try {
-
-    const response = await axios.get(url);
+    const response = await axios.get(sheetUrl);
     const $: CheerioAPI = load(response.data);
-
     const data: any = [];
 
     for (const sheetId of sheetIds) {
@@ -24,7 +26,7 @@ const scrapeGoogleSheet = async (url: string) => {
         if (columns.length === 3 || columns.length === 4) {
 
           /* Donate Directly to Maui ʻOhana */
-          if (isFirstSheet(sheetId) && $(columns[1]).text() !== 'Donation Link'
+          if (isFirstSheet(sheetIds, sheetId) && $(columns[1]).text() !== 'Donation Link'
             && !$(columns[0]).attr('class')?.includes('freezebar') && $(columns[0]).text().trim() !== '') {
             sheetData.rowCount++;
             sheetData.rows.push({
@@ -81,31 +83,13 @@ const scrapeGoogleSheet = async (url: string) => {
       data.push(sheetData);
     }
     
-    await fs.promises.writeFile('output.json', '');
-    await fs.promises.writeFile('output.json', JSON.stringify(data, null, 2));
+    const filePath = path.join(process.cwd(), 'output.json');
+    await fs.promises.writeFile(filePath, '');
+    await fs.promises.writeFile(filePath, JSON.stringify(data, null, 2));
   } catch (error) {
     console.error('Error:', error);
   }
-};
 
-const isFirstSheet = (sheetId: number) => {return sheetId === sheetIds[0] ? true : false}
-const isSecondSheet = (sheetId: number) => {return sheetId === sheetIds[1] ? true : false}
-const isThirdSheet = (sheetId: number) => {return sheetId === sheetIds[2] ? true : false}
-const isFourthSheet = (sheetId: number) => {return sheetId === sheetIds[3] ? true : false}
-
-const getTitle = ($: any, sheetId: number) => {
-  let textToReturn = '';
-  $('#sheet-menu li').each((i: any, item: any) => {
-    if (item.attribs.id === `sheet-button-${sheetId}`) {
-      textToReturn = $(item).find('a').text().trim();
-    }
-  })
-  return textToReturn;
 }
 
-export default async function handler(req: any, res: any) {
-  res.send('Scraping Data..');
-  const sheetUrl = 'https://docs.google.com/spreadsheets/d/1lExatubPl6zvsDcy4qUd3Sv1PvvKrzMhUyOzaKuId0o/htmlview';
-  scrapeGoogleSheet(sheetUrl);
-}
-
+const isFirstSheet = (sheetIds: number[], sheetId: number) => {return sheetId === sheetIds[0] ? true : false}
