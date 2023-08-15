@@ -425,6 +425,8 @@
 
   .main .sheet-rows {
     margin-top: 0;
+    border: none;
+    padding: unset;
   }
 
   #search-bar-wrapper {
