@@ -3,8 +3,9 @@ import { SheetModel } from '@/db/models';
 import dbConnect from '@/db/db';
 import RateLimiter from '@/utils/limiter';
 
-const callsPerMinute = 2;
-const limiter = new RateLimiter(callsPerMinute, 60 * 1000);
+/* Allow 1 call every 2 minutes(30 an hour) */
+const calls = 1;
+const limiter = new RateLimiter(calls, 2 * 60 * 1000);
 
 export default async function handler(req: any, res: any) {
   const fileName = 'output.json'
@@ -32,7 +33,7 @@ const saveNewSheetRecord = async (sheet: any) => {
     await newSheet.save();
     console.log(`Saved new sheet: ${newSheet?.title} with ID ${newSheet._id}`);
   } else {
-    console.log('Sheet creation rate limit exceeded for the next minute');
+    console.log('Sheet creation rate limit exceeded');
   }
 }
 

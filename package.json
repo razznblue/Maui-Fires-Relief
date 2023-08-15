@@ -1,6 +1,6 @@
 {
   "name": "maui-fire-relief",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3002",
@@ -13,8 +13,6 @@
     "@typegoose/typegoose": "^11.4.0",
     "axios": "^1.4.0",
     "cheerio": "^1.0.0-rc.12",
-    "google-auth-library": "^8.9.0",
-    "google-spreadsheet": "^4.0.2",
     "mongoose": "^7.4.2",
     "next": "13.4.13",
     "react": "18.2.0",
@@ -22,6 +20,7 @@
     "swr": "^2.2.1"
   },
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.4.4",
     "@types/node": "20.4.9",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
