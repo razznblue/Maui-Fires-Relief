@@ -88,7 +88,9 @@ const SheetRenderer = (wrapper: any) => {
                     {row.donationLabel || 'DONATE NOW'}
                   </a>
                 ) : (
-                  ''
+                  <a className={styles.donate} >
+                    {row.donationLabel || ''}
+                  </a>
                 )}
                 <Image 
                   width={30} height={30} 
