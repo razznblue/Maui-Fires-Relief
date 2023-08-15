@@ -8,7 +8,8 @@ const nextConfig = {
         hostname: "**", // Allow access to any domain
       },
     ],
-  }
+  },
+  nftTracing: true 
 }
 
 module.exports = nextConfig;
