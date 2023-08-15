@@ -70,7 +70,7 @@ const SheetRenderer = (wrapper: any) => {
               id={styles['search-input']}
               className={styles['search-input']}
               type="text"
-              placeholder="Search by keyword"
+              placeholder="Search keywords"
               value={searchKeyword}
               onChange={handleSearchChange}
             />
