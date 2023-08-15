@@ -1,6 +1,7 @@
 import { CheerioAPI, load } from 'cheerio';
 import axios from 'axios';
 import fs from 'fs';
+import path from 'path';
 
 // const sheetIds = [194434303, 0, 120027051, 2532397];
 const sheetIds = [194434303];
@@ -81,8 +82,9 @@ const scrapeGoogleSheet = async (url: string) => {
       data.push(sheetData);
     }
     
-    await fs.promises.writeFile('output.json', '');
-    await fs.promises.writeFile('output.json', JSON.stringify(data, null, 2));
+    const filePath = path.join(process.cwd(), 'output.json');
+    await fs.promises.writeFile(filePath, '');
+    await fs.promises.writeFile(filePath, JSON.stringify(data, null, 2));
   } catch (error) {
     console.error('Error:', error);
   }
