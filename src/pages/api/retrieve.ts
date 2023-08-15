@@ -4,14 +4,16 @@ import fs from 'fs';
 import path from 'path';
 import RateLimiter from '@/utils/limiter';
 
-const callsPerMinute = 2;
+const callsPerMinute = 1;
 const limiter = new RateLimiter(callsPerMinute, 60 * 1000);
 
 export default async function handler(req: any, res: any) {
   const fileName = 'output.json'
   const filePath = path.join(process.cwd(), fileName);
+  console.log(`filePath: ${filePath}`);
   const data = await fs.promises.readFile(filePath, 'utf8');
   await dbConnect();
+  console.log('connected to DB')
 
   // Support for if output.json has no data
   if (!data) return await fetchMostRecentData(fileName, res);
