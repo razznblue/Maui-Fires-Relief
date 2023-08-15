@@ -5,7 +5,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="icon" href="lahainalunalogo.png" />
+          <link rel="icon" href="maui-favicon.png" />
         </Head>
         <body>
           <Main />

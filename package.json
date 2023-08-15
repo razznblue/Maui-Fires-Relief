@@ -3,20 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3002",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.2",
     "@typegoose/typegoose": "^11.4.0",
     "axios": "^1.4.0",
+    "cheerio": "^1.0.0-rc.12",
     "google-auth-library": "^8.9.0",
     "google-spreadsheet": "^4.0.2",
     "mongoose": "^7.4.2",
     "next": "13.4.13",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "swr": "^2.2.1"
   },
   "devDependencies": {
     "@types/node": "20.4.9",

@@ -36,7 +36,7 @@
 
   --callout-rgb: 238, 240, 241;
   --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
+  --card-rgb: rgb(55, 115, 152);
   --card-border-rgb: 131, 134, 135;
 }
 
@@ -98,6 +98,10 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+ul {
+  list-style: none;
 }
 
 @media (prefers-color-scheme: dark) {

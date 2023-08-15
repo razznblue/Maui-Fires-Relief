@@ -1,10 +1,163 @@
+.home-container {
+  background: rgb(0, 0, 0);
+}
+
+.loading {
+  font-size: 2.5rem;
+}
+
+.nav .title {
+  cursor: pointer;
+}
+
 .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
+  display: grid;
+  grid-template-columns: 6.5fr 3fr; /* Left column (search bar and rows) takes 1/4 and right column takes 3/4 of available space */
+  grid-gap: 20px;
+  padding: 17rem 4rem 4rem 4rem;
   min-height: 100vh;
+  position: relative;
+}
+
+.main .banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 40vh;
+}
+
+.toggle-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(-50%, 40%);
+  transition: transform 0.9s ease-in-out; /* Add a transition for smooth animation */
+}
+
+.rotate-180 {
+  transform: translate(-50%, 40%) rotate(180deg);
+}
+
+.rotate-icon {
+  transition: transform 0.1s ease-in-out;
+}
+
+.rotate-image {
+  transition: transform 0.3s ease-in-out;
+}
+
+.main h2 {
+  font-size: 300%;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.main .main-title {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 20rem;
+  margin-top: 3rem;
+  padding-top: 3%;
+  grid-column: 1 / span 2; 
+  color: #3a9536;
+}
+
+.main .main-title img {
+  margin-left: 1rem;
+}
+
+.main .right-container {
+  margin-top: 3rem;
+  border: 2px solid rgb(30, 116, 59);
+  max-height: 14rem;
+  background: rgb(30, 116, 59);
+}
+
+.main .right-container .main-p {
+  margin: 2rem;
+  font-size: 120%;
+  text-align: left;
+  grid-column: 1;
+  min-width: 20rem;
+}
+
+#main-p a:hover {
+  color: rgb(221, 171, 77);
+}
+
+#search-bar {
+  grid-column: 1 / span 2; 
+}
+
+
+#search-bar-wrapper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 300%);
+  min-width: 700px;
+  min-height: 55px;
+}
+
+/* Styling for the search bar */
+#search-bar {
+  position: relative;
+  display: flex;
+  align-items: center; 
+}
+
+#search-input {
+  width: 100%;
+  min-height: 50px;
+  padding: 0.5rem 1rem;
+  background: rgba(10, 10, 10, .1);
+  color: rgb(59, 59, 59);
+  font-size: 18px;
+  border: 2px solid rgb(59, 59, 59);
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+#search-input::placeholder {
+  color: rgb(59, 59, 59);
+}
+
+#search-input:focus {
+  border-color: #007bff;
+}
+
+#search-icon {
+  position: absolute;
+  right: 4%;
+  font-size: 20px;
+  color: #007bff;
+  pointer-events: none;
+}
+
+.main .sheet-rows {
+  grid-column: 1;
+  margin-top: 3rem;
+  border: 2.5px solid rgb(30, 116, 59);
+  border-radius: 2rem;
+  /* background: rgb(30, 116, 59); */
+  padding: 2rem;
+}
+
+
+/* Add transition properties for the description */
+.main .sheet-rows li {
+  transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+/* Style for the expanded rows */
+.main .sheet-rows li.expanded {
+  max-height: 1000px; /* Adjust the max-height value to fit your content */
+  padding: 1rem 1.2rem; /* Adjust padding as needed */
 }
 
 .description {
@@ -34,6 +187,10 @@
   border-radius: var(--border-radius);
 }
 
+.donate {
+  color: rgb(187, 137, 45);
+}
+
 .code {
   font-weight: 700;
   font-family: var(--font-mono);
@@ -49,9 +206,12 @@
 .card {
   padding: 1rem 1.2rem;
   border-radius: var(--border-radius);
-  background: rgba(var(--card-rgb), 0);
+  background: rgb(70, 70, 70);
   border: 1px solid rgba(var(--card-border-rgb), 0);
   transition: background 200ms, border 200ms;
+  margin: 0.8rem 0;
+  position: relative;
+  cursor: pointer;
 }
 
 .card span {
@@ -65,11 +225,11 @@
 }
 
 .card p {
-  margin: 0;
-  opacity: 0.6;
-  font-size: 0.9rem;
+  margin: 0.3rem 0;
+  opacity: 0.7;
+  font-size: 100%;
   line-height: 1.5;
-  max-width: 30ch;
+  /* max-width: 30ch; */
 }
 
 .center {
@@ -225,5 +385,52 @@
   }
   to {
     transform: rotate(0deg);
+  }
+}
+
+/* Media queries for responsive layout */
+@media (max-width: 600px) {
+  .main {
+    display: flex; /* Switch to a single column layout */
+    flex-direction: column-reverse;
+    padding: 2rem;
+    padding-top: 13rem;
+  }
+
+  .main .banner {
+    min-height: 30vh;
+  }
+
+  .main h2 {
+    font-size: 180%; /* Decrease font size for headings */
+    text-align: center;
+    margin-top: 0; /* Remove top margin */
+  }
+
+  .main .right-container .main-p {
+    min-width: unset;
+  }
+
+  .main .main-title {
+    grid-column: auto; /* Reset grid column to take full width */
+    text-align: center; /* Center the main title */
+    margin: 2rem 0;
+    font-size: 35px;
+  }
+
+  .main .right-container {
+    min-height: 16rem;
+    text-align: center; /* Center content */
+  }
+
+  .main .sheet-rows {
+    margin-top: 0;
+    border: none;
+    padding: unset;
+  }
+
+  #search-bar-wrapper {
+    transform: translate(-50%, 200%);
+    min-width: 300px;
   }
 }
