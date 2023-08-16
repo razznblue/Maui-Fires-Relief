@@ -1,8 +1,11 @@
-# Maui Fire Relief
+# Maui Fires Relief
  - A website providing *accurate* and *trusted* donation sources to help the families and people directly affected by the Maui Fires in early August 2023. The website is powered by a community-made [google doc](https://docs.google.com/spreadsheets/d/1lExatubPl6zvsDcy4qUd3Sv1PvvKrzMhUyOzaKuId0o/edit?pli=1#gid=194434303). Any new info added in the doc will automatically be pulled into the website.
 
 ## Hosting
  - The site is hosted/accessible on [fly.io](https://maui-relief.fly.dev/)
+
+## Improvements
+ - Efforts are being made to improve the site. View the [project board](https://github.com/users/razznblue/projects/7/views/1) to see what is planned or currently in progress.
 
 ## Contributing
  - Feel free to contribute to make the site experience better for users. 🙏

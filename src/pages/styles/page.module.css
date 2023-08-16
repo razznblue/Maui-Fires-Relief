@@ -85,6 +85,10 @@
   min-width: 20rem;
 }
 
+.main .right-container .main-p a {
+  color: rgb(214, 195, 126);
+}
+
 .main .right-container .main-p a:hover {
   color: rgb(221, 171, 77);
 }
