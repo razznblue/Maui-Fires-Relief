@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import useSWR from 'swr';
 import styles from '../pages/styles/page.module.css'
 import Image from 'next/image';
+// import Script from 'next/script';
+import LoadScript from './LoadScript';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const fetcher = async (url: any) => {
@@ -103,7 +105,9 @@ const SheetRenderer = (wrapper: any) => {
                   />
               </h3>
               {collapsedRows[rowIndex] ? null : (
-                <p style={{ textIndent: '2em' }}>{row.description}</p>
+                <>
+                  <p style={{ textIndent: '2em' }}>{row.description}</p>
+                </>
               )}
             </li>
           ))}
@@ -116,6 +120,8 @@ const SheetRenderer = (wrapper: any) => {
         </div>
 
       </div>
+
+      <LoadScript src="https://www.gofundme.com/static/js/embed.js" />
     </div>
   );
 };
