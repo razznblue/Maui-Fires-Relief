@@ -7,7 +7,7 @@ import { CheerioAPI, load } from 'cheerio';
 import UserAgent from 'user-agents';
 
 export default async function handler(req: any, res: any) {
-  const jobExecutionTimeName = 'CronJob | MFR-Family';
+  const jobExecutionTimeName = `CronJob | MFR-Family | ${new Date().toISOString()}`;
 
   if (req?.method === 'POST') {
     console.log('Received Request to process Families');
@@ -28,10 +28,11 @@ export default async function handler(req: any, res: any) {
       
       console.time(jobExecutionTimeName);
       /* At this point authorization is finished. Continue with normal logic */
+      console.log('Processing Families');
       res.send('Processing Families');
 
       const data = await fs.promises.readFile('output.json', 'utf8');
-      if (!data) return res.status(400).send('No Family Data Found To Process');
+      if (!data) console.warn('No Family Data Found To Process. output.json is empty. Trigger a re-run of Sheet Data by visiting the home page');
 
       const parsedData: any = JSON.parse(data);
       const families = parsedData[0].rows;
@@ -52,7 +53,6 @@ export default async function handler(req: any, res: any) {
       console.log(`Finished saving all families`);
 
     } catch(err: any) {
-      console.error('error....');
       console.error('Unexpected Error: ' + err?.message)
     }
   } else {
