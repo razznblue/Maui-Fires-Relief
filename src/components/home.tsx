@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import styles from '../pages/styles/page.module.css'
 import Image from 'next/image';
@@ -158,6 +158,11 @@ const handleLoadError = (error: any) => {
 }
 
 const Home = () => {
+  useEffect(() => {
+    console.log('')
+    fetch('/api/scrape2');
+  }, [])
+
   const { data, error } = useSWR('/api/family', fetcher);
 
   if (error) return handleLoadError(error)
